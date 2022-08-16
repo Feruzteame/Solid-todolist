@@ -2,7 +2,7 @@ import { createSignal, createContext, useContext } from 'solid-js';
 
 const ToDoListContext = createContext();
 
-export default function ToDoListProvider(props) {
+function ToDoListProvider(props) {
 
   const [list, setList] = createSignal([]);
 
@@ -38,3 +38,5 @@ export default function ToDoListProvider(props) {
 export function useToDoList() {
   return useContext(ToDoListContext);
 }
+
+export default ToDoListProvider

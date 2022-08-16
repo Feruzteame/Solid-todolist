@@ -2,7 +2,7 @@ import { Routes, Route } from 'solid-app-router'
 
 import 'tailwindcss/tailwind.css';
 
-import ToDoListProvider from './components/TodoList';
+import { ToDoListProvider } from './components/TodoList';
 
 import AddList from './pages/AddList';
 import Calender from './pages/Calender';

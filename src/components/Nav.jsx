@@ -23,10 +23,10 @@ import { NavLink } from 'solid-app-router';
           { currentDate }
         </p>
       </h4>
-      <NavLink href="/" class='m-2'>
+      <NavLink href='/' class='m-2'>
         List
       </NavLink>
-      <NavLink href="/calender" class='m-2'>
+      <NavLink href='/calender' class='m-2'>
         calender
       </NavLink>
     </nav>

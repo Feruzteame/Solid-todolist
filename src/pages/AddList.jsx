@@ -4,7 +4,7 @@ export default function AddList() {
 
   const [list, { handleSubmit, deleteItem }] = useToDoList();
 
-  return (
+  return(
     <div class='flex justify-center w-full font-header h-screen md:text-lg'>
       <div class='flex-row justify-center w-full'>
         <div class='bg-red-200'>
@@ -17,14 +17,14 @@ export default function AddList() {
                 <button
                 class='m-2 w-[20%]'
                 onclick={ ()=>deleteItem(item) }>
-                delete
+                  delete
                 </button>
               </li>
             }</For>
           </ul>
         </div>
         <form onSubmit={ handleSubmit }
-          class='flex justify-between'>
+        class='flex justify-between'>
           <input
           class='border-solid border-2 w-[20%] m-2'
           type='text'
