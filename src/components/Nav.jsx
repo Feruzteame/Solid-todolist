@@ -1,6 +1,6 @@
 import { NavLink } from 'solid-app-router';
 
- export default function Navigation() {
+ export default function Nav() {
 
   function currentDate() {
     const today = new Date();
