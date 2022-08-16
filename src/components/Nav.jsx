@@ -18,7 +18,7 @@ import { NavLink } from 'solid-app-router';
       lg:text-left
       text-2xl
       font-bold'>
-      My list
+        My list
         <p class='text-red-900'>
           { currentDate }
         </p>
