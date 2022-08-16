@@ -13,7 +13,7 @@ import { NavLink } from 'solid-app-router';
   return(
     <nav>
       <h4 class='
-    bg-gray-200
+      bg-gray-200
       pl-4 h-auto text-center
       lg:text-left
       text-2xl

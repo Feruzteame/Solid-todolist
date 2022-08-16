@@ -4,7 +4,7 @@ const ToDoListContext = createContext();
 
 export default function ToDoListProvider(props) {
 
-  const [list, setList] = createSignal([props.list]);
+  const [list, setList] = createSignal([]);
 
   const toDoList = [
     list,{
