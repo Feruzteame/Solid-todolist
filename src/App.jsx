@@ -1,8 +1,9 @@
 import { Routes, Route } from "solid-app-router"
-import AddList from "./Pages/AddList";
-import Calender from './Pages/Calender'
-import Nav from './Components/nav';
-import { TodoListProvider } from './Components/todoList';
+import AddList from "./pages/AddList";
+import Calender from './pages/Calender'
+import Nav from './components/Nav';
+import { TodoListProvider } from './components/TodoList';
+import "tailwindcss/tailwind.css";
 
 function App() {
   return (

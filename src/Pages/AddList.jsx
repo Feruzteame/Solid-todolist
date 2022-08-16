@@ -1,6 +1,4 @@
-import { createSignal, createEffect } from "solid-js";
-import "tailwindcss/tailwind.css";
-import { useTodoList } from '../Components/todoList'
+import { useTodoList } from '../components/TodoList'
 
 function AddList() {
 

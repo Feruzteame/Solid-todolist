@@ -1,5 +1,4 @@
 import { createSignal, createEffect } from "solid-js";
-import "tailwindcss/tailwind.css";
 
 const [holiday, setHoliday] = createSignal([]);
 

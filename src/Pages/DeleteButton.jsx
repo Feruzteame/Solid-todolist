@@ -1,6 +1,4 @@
-import { createSignal, createEffect } from "solid-js";
-import "tailwindcss/tailwind.css";
-import { useList } from '../Components/todoList'
+import { useList } from '../components/TodoList'
 
 function deleteButton() {
 
