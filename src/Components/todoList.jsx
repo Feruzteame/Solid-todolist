@@ -1,30 +1,26 @@
-import { createSignal, createContext, useContext } from "solid-js";
+import { createSignal, createContext, useContext } from 'solid-js';
 
-const TodoListContext = createContext();
+const ToDoListContext = createContext();
 
-export function TodoListProvider(props) {
+export default function ToDoListProvider(props) {
 
-  const [list, setList] = createSignal([])
+  const [list, setList] = createSignal([props.list]);
 
-  const todoList = [
+  const toDoList = [
     list,{
-      // Add list
       handleSubmit(e){
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const props = Object.fromEntries(formData)
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
 
-        if(props.list == "") {
-          alert('pls add content.')
-        }else{
-          setList([...list(), props.list])
-          e.target.reset();
-          }
+        if (data.list) {
+          setList([...list(), data.list]) && e.target.reset();
+        } else {
+          alert('pls add content.');
+        }
       } ,
-
-      // delete item 
       deleteItem(x){
-        if (confirm(`Are you sure you need to delete from your list? `) == true) {
+        if (confirm(`Are you sure you need to delete from your list?`)) {
           setList((list) => list.filter((el) => el !== x));
           }else {
             return;
@@ -32,11 +28,13 @@ export function TodoListProvider(props) {
         }
     }
   ]
-  return (
-    <TodoListContext.Provider value={todoList}>
+  return(
+    <ToDoListContext.Provider value={toDoList}>
       {props.children}
-    </TodoListContext.Provider>
+    </ToDoListContext.Provider>
   )
 };
 
-export function useTodoList() { return useContext(TodoListContext); }
+export function useToDoList() {
+  return useContext(ToDoListContext);
+}

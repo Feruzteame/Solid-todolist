@@ -1,27 +1,26 @@
-import { NavLink } from "solid-app-router";
+import { NavLink } from 'solid-app-router';
 
-function Nav() {
+ export default function Nav() {
 
-  // date
-  function date () {
-    let today = new Date();
+  function currentDate() {
+    const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();
-    return today = `${ mm }-${ dd }-${ yyyy }`;
+    return( `${ mm }-${ dd }-${ yyyy }`);
   }
 
   return(
-    <nav >
+    <nav>
       <h4 class='
-      bg-gray-200
-        pl-4 h-auto text-center 
-        lg:text-left
-        text-2xl 
-        font-bold' >
-        My Todolist 
-        <p class='text-red-900'> 
-          { date }
+    bg-gray-200
+      pl-4 h-auto text-center
+      lg:text-left
+      text-2xl
+      font-bold'>
+      My list
+        <p class='text-red-900'>
+          { currentDate }
         </p>
       </h4>
       <NavLink href="/" class='m-2'>
@@ -33,5 +32,3 @@ function Nav() {
     </nav>
   )
 }
-
-export default Nav

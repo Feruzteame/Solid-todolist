@@ -1,18 +1,16 @@
-import { useList } from '../components/TodoList'
+import { useList } from '../components/ToDoList';
 
-function deleteButton() {
+export default function DeleteButton() {
 
   const [ { deleteItem }] = useList();
 
-  return (
-      <div class='flex justify-center w-full font-header h-screen md:text-lg' >
+  return(
+      <div class='flex justify-center w-full font-header h-screen md:text-lg'>
         <button
-          class='m-2 w-[20%]'
-          onclick={ ()=>deleteItem() } >
-          delete
-        </button> 
-       </div>
+        class='m-2 w-[20%]'
+        onclick={ ()=>deleteItem() }>
+        delete
+        </button>
+      </div>
     );
 }
-
-export default deleteButton;
