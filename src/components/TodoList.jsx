@@ -2,12 +2,13 @@ import { createSignal, createContext, useContext } from 'solid-js';
 
 const ToDoListContext = createContext();
 
-function ToDoListProvider(props) {
+export function ToDoListProvider(props) {
 
   const [list, setList] = createSignal([]);
 
   const toDoList = [
-    list,{
+    list,
+    {
       handleSubmit(e){
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -22,21 +23,20 @@ function ToDoListProvider(props) {
       deleteItem(x){
         if (confirm(`Are you sure you need to delete from your list?`)) {
           setList((list) => list.filter((el) => el !== x));
-          }else {
-            return;
-          }
+        } else {
+          return;
         }
+      }
     }
   ]
+
   return(
-    <ToDoListContext.Provider value={toDoList}>
-      {props.children}
+    <ToDoListContext.Provider value={ toDoList }>
+      { props.children }
     </ToDoListContext.Provider>
   )
-};
+}
 
 export function useToDoList() {
   return useContext(ToDoListContext);
 }
-
-export default ToDoListProvider
