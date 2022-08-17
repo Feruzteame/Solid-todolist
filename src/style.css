@@ -5,3 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark {
+    background-color: darkgray;
+  }
+  
+  .light {
+    background-color: white;
+  }

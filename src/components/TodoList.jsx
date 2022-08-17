@@ -4,12 +4,12 @@ const ToDoListContext = createContext();
 
 export function ToDoListProvider(props) {
 
-  const [list, setList] = createSignal([]);
+  const [list, setList] = createSignal([props.list || 'My List']);
 
   const toDoList = [
     list,
     {
-      handleSubmit(e){
+      handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
@@ -20,7 +20,7 @@ export function ToDoListProvider(props) {
           alert('pls add content.');
         }
       } ,
-      deleteItem(x){
+      deleteItem(x) {
         if (confirm(`Are you sure you need to delete from your list?`)) {
           setList((list) => list.filter((el) => el !== x));
         } else {

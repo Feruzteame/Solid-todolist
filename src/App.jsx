@@ -3,10 +3,11 @@ import { Routes, Route } from 'solid-app-router'
 import 'tailwindcss/tailwind.css';
 
 import { ToDoListProvider } from './components/TodoList';
+import { ThemeModeProvider } from './components/ThemeMode'
 
 import AddList from './pages/AddList';
 import Calender from './pages/Calender';
-import Navigation from './components/Nav';
+import Nav from './components/Nav';
 
 export default function App() {
 
@@ -14,14 +15,16 @@ export default function App() {
     <ToDoListProvider>
       <AddList/>
     </ToDoListProvider>
-
+  
   return(
     <div>
-      <Navigation/>
-      <Routes>
-        <Route path='/calender' element={ <Calender/> } />;
-        <Route path='/' element={ addListPage } />;
-      </Routes>
+      <ThemeModeProvider>
+        <Nav/>
+        <Routes>
+          <Route path='/calender' element={ <Calender/> } />;
+          <Route path='/' element={ addListPage } />;
+        </Routes>
+      </ThemeModeProvider>
     </div>
   );
 }

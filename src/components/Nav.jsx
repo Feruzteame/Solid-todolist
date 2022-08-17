@@ -1,4 +1,5 @@
 import { NavLink } from 'solid-app-router';
+import Theme from '../pages/Theme';
 
  export default function Nav() {
 
@@ -10,25 +11,43 @@ import { NavLink } from 'solid-app-router';
     return(`${ mm }-${ dd }-${ yyyy }`);
   }
 
+  const currentTime = () => {
+    const today = new Date();
+    const time = today.toLocaleTimeString();
+    return (time);
+  }
+
   return(
-    <nav>
-      <h4 class='
-      bg-gray-200
-      pl-4 h-auto text-center
-      lg:text-left
-      text-2xl
-      font-bold'>
-        My list
-        <p class='text-red-900'>
+    <nav class='flex justify-center w-full'>
+      <div>
+        <h4 class='
+        bg-gray-200
+        h-auto text-center
+        lg:text-left
+        text-2xl
+        font-bold'>
+          My list
+        </h4>
+        <h3 class='
+        bg-gray-200
+        h-auto text-center
+        text-sm
+        font-bold'>
           { currentDate }
+        </h3>
+        <p>
+          { currentTime }
         </p>
-      </h4>
-      <NavLink href='/' class='m-2'>
-        List
-      </NavLink>
-      <NavLink href='/calender' class='m-2'>
-        calender
-      </NavLink>
+      </div>
+      <div class=''>
+        <NavLink href='/' class='m-2'>
+          List
+        </NavLink>
+        <NavLink href='/calender' class='m-2'>
+          calender
+        </NavLink>
+        <Theme/>
+      </div>
     </nav>
   )
 }

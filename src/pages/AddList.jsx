@@ -9,11 +9,10 @@ export default function AddList() {
       <div class='flex-row justify-center w-full'>
         <div class='bg-red-200'>
           <ul class='flex-row'>
-            <For each={ list }>{ (item) =>
+            <For each={ list() }>{ (item) =>
               <li class='flex w-full'>
-                <p class='m-2 w-[80%]'>
-                  { item }
-                </p>
+                <input class='m-2 w-[80%]'
+                value={ item } />
                 <button
                 class='m-2 w-[20%]'
                 onclick={ ()=>deleteItem(item) }>
