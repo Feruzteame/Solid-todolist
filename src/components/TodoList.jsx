@@ -14,14 +14,14 @@ export function ToDoListProvider(props) {
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
 
-        if (data.list) {
+        if(data.list) {
           setList([...list(), data.list]) && e.target.reset();
         } else {
           alert('pls add content.');
         }
-      } ,
+      },
       deleteItem(x) {
-        if (confirm(`Are you sure you need to delete from your list?`)) {
+        if(confirm(`Are you sure you need to delete from your list?`)) {
           setList((list) => list.filter((el) => el !== x));
         } else {
           return;

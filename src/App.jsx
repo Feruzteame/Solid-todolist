@@ -7,7 +7,7 @@ import { ThemeModeProvider } from './components/ThemeMode'
 
 import AddList from './pages/AddList';
 import Calender from './pages/Calender';
-import Nav from './components/Nav';
+import Nav from './pages/Nav';
 
 export default function App() {
 
@@ -22,7 +22,7 @@ export default function App() {
         <Nav/>
         <Routes>
           <Route path='/calender' element={ <Calender/> } />;
-          <Route path='/' element={ addListPage } />;
+          <Route path='/my_list' element={ addListPage } />;
         </Routes>
       </ThemeModeProvider>
     </div>

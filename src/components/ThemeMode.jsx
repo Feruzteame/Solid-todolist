@@ -2,29 +2,42 @@ import { createSignal, createContext, useContext } from 'solid-js';
 
 const ModeContext = createContext();
 
+const modeProps = {
+  light: {
+    bgColor: 'white',
+    textColor: 'black',
+    buttonColor: 'rgb(99 102 241)'
+  },
+  dark: {
+    bgColor: 'black',
+    textColor: 'lightgray',
+    buttonColor: 'orange'
+  }
+}
+
 export function ThemeModeProvider(props) {
 
-  const [mode, setMode] = createSignal(props.mode);
+  const [isLight, setIsLight] = createSignal(props.mode || true);
 
-  function lightMode() {
-    document.body.style.backgroundColor = 'whitesmoke';
+  const setModeProps = () => {
+    const button = document.body.getElementsByClassName('button')
+
+    document.body.style.backgroundColor = modeProps[isLight() ? 'light' : 'dark'].bgColor;
+    document.body.style.color = modeProps[isLight() ? 'light' : 'dark'].textColor;
+
+    for (const [key, value] of Object.entries(button)) {
+      value.style.backgroundColor = modeProps[isLight() ? 'light' : 'dark'].buttonColor;
+    }
   }
-  function darkMode() {
-    document.body.style.backgroundColor = 'darkgray';
-  }
+
 
   const modeTheme = [
-    mode,
+    isLight,
     {
-      toggleMode(){
-        if(mode) {
-          setMode('Light');
-          darkMode();
-        }else{
-          setMode('Dark');
-          lightMode();
-        }
-      },
+      toggleMode() {
+        setIsLight(!isLight())
+        setModeProps()
+      }
     }
   ]
 

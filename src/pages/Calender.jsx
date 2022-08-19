@@ -1,8 +1,10 @@
 import { createSignal, createEffect } from 'solid-js';
+import { useMode } from '../components/ThemeMode'
 
 export default function Calender() {
 
   const [holiday, setHoliday] = createSignal([]);
+  const [isLight] = useMode();
 
   createEffect(
     async() => {
@@ -13,21 +15,21 @@ export default function Calender() {
   )
 
   return(
-    <div class='w-full h-screen md:text-lg'>
-      <section class='flex-row'>
+    <div class='flex-row p-8'>
+      <article class='flex flex-wrap-reverse'>
         <For each={ holiday() }>
           {(day) => (
-            <div class='border-solid border-2 w-[20%] p-4'>
+            <section class={`border-2 ${[isLight() ? 'border-indigo-300' :'border-orange-300']} m-2 p-2 w-48 rounded drop-shadow-lg shadow-inner`} >
               <p>
                 { day.date }
               </p>
               <p>
                 { day.title }
               </p>
-            </div>
+            </section>
           )}
         </For>
-      </section>
+      </article>
     </div>
   );
 }
